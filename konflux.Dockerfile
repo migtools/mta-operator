@@ -19,6 +19,9 @@ COPY --chown=1001:0 LICENSE /licenses/
 # Hack java bundle property location downstream (can't use snapshoted artifacts)
 RUN sed -r -i 's/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar/java-analyzer-bundle.core.jar/' ${HOME}/roles/tackle/templates/customresource-extension.yml.j2
 
+# Switch image_pull_policy downstream to IfNotPresent (We pull images by SHA digest not floating tags)
+RUN sed -i 's/^image_pull_policy: "Always"$/image_pull_policy: "IfNotPresent"/' ${HOME}/roles/tackle/defaults/main.yml
+
 LABEL \
         description="Migration Toolkit for Applications - Operator" \
         io.k8s.description="Migration Toolkit for Applications - Operator" \
