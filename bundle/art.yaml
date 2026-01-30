@@ -20,10 +20,6 @@ updates:
   - search: "name: kantra"
     replace: "name: mta-cli"
   # FIXME: We need a better way to handle these, these are MTA external dependencies that we do not build (external image refs)
-  - search: "quay.io/sclorg/postgresql-15-c9s:latest"
-    replace: "registry.redhat.io/rhel9/postgresql-15@sha256:8da4d3837db7dc4baaa1cc2612fe8e13b7507a4690f1ff5e5e97a26a157aa9e5"
-  - search: "quay.io/openshift/origin-oauth-proxy:latest"
-    replace: "registry.redhat.io/openshift4/ose-oauth-proxy@sha256:ef10b2ecbfa0c4ac8568af9ee64ee4a554e3fdc9089ee5683b6c2c3a74caafbe"
   # Keycloak is deployed downstream using rhbk operator, this is requested via dependencies.yaml
   - search: "- name: RELATED_IMAGE_KEYCLOAK_SSO"
     replace: "# - name: RELATED_IMAGE_KEYCLOAK_SSO (unused downstream)"
@@ -85,3 +81,10 @@ updates:
     replace: mta-operator
   - search: development
     replace: stable-v8.0
+external-images:
+- name: postgresql
+  search: "quay.io/sclorg/postgresql-15-c9s:latest"
+  replace: "registry.redhat.io/rhel9/postgresql-15:latest"
+- name: origin-oauth-proxy
+  search: "quay.io/openshift/origin-oauth-proxy:latest"
+  replace: "registry.redhat.io/openshift4/ose-oauth-proxy:latest"
