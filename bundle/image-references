@@ -63,11 +63,11 @@ spec:
     from:
       kind: DockerImage
       name: quay.io/konveyor/tackle2-ui:release-0.8
-  - name: oauth-proxy
+  - name: postgresql
     from:
       kind: DockerImage
       name: quay.io/sclorg/postgresql-15-c9s:latest
-  - name: postgresql-15
+  - name: origin-oauth-proxy
     from:
       kind: DockerImage
       name: quay.io/openshift/origin-oauth-proxy:latest
