@@ -14,7 +14,7 @@ images:
   operator: quay.io/konveyor/tackle2-operator:release-0.9
   oauth_proxy: quay.io/openshift/origin-oauth-proxy:4.22
   tackle_hub: quay.io/konveyor/tackle2-hub:release-0.9
-  tackle_postgres: quay.io/sclorg/postgresql-15-c9s:latest
+  tackle_postgres: quay.io/sclorg/postgresql-15-c9s:c9s
   keycloak_sso: quay.io/keycloak/keycloak:26.1
   tackle_ui: quay.io/konveyor/tackle2-ui:release-0.9
   addon_analyzer: quay.io/konveyor/tackle2-addon-analyzer:release-0.9
