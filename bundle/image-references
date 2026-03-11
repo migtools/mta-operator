@@ -6,72 +6,72 @@ spec:
   - name: mta-rhel9-operator
     from:
       kind: DockerImage
-      name: quay.io/konveyor/tackle2-operator:latest
+      name: quay.io/konveyor/tackle2-operator:release-0.9
   - name: mta-analyzer-addon-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/tackle2-addon-analyzer:latest
+      name: quay.io/konveyor/tackle2-addon-analyzer:release-0.9
   - name: mta-analyzer-lsp-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/analyzer-lsp:latest
+      name: quay.io/konveyor/analyzer-lsp:release-0.9
   - name: mta-cli-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/kantra:latest
+      name: quay.io/konveyor/kantra:release-0.9
   - name: mta-discovery-addon-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/tackle2-addon-discovery:latest
+      name: quay.io/konveyor/tackle2-addon-discovery:release-0.9
   - name: mta-dotnet-external-provider-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/c-sharp-provider:latest
+      name: quay.io/konveyor/c-sharp-provider:release-0.9
   - name: mta-generic-external-provider-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/generic-external-provider:latest
+      name: quay.io/konveyor/generic-external-provider:release-0.9
   - name: mta-golang-dependency-provider-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/golang-dependency-provider:latest
+      name: quay.io/konveyor/golang-dependency-provider:release-0.9
   - name: mta-hub-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/tackle2-hub:latest
+      name: quay.io/konveyor/tackle2-hub:release-0.9
   - name: mta-java-external-provider-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/java-external-provider:latest
+      name: quay.io/konveyor/java-external-provider:release-0.9
   - name: mta-jdtls-server-base-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/jdtls-server-base:latest
+      name: quay.io/konveyor/jdtls-server-base:release-0.9
   - name: mta-platform-addon-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/tackle2-addon-platform:latest
+      name: quay.io/konveyor/tackle2-addon-platform:release-0.9
   - name: mta-solution-server-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/kai-solution-server:latest
+      name: quay.io/konveyor/kai-solution-server:release-0.9
   - name: mta-static-report-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/static-report:latest
+      name: quay.io/konveyor/static-report:release-0.9
   - name: mta-ui-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/tackle2-ui:latest
+      name: quay.io/konveyor/tackle2-ui:release-0.9
   - name: postgresql
     from:
       kind: DockerImage
-      name: quay.io/sclorg/postgresql-15-c9s:latest
+      name: quay.io/sclorg/postgresql-15-c9s:c9s
   - name: origin-oauth-proxy
     from:
       kind: DockerImage
-      name: quay.io/openshift/origin-oauth-proxy:latest
+      name: quay.io/openshift/origin-oauth-proxy:4.22
   - name: lightspeed-stack
     from:
       kind: DockerImage
-      name: quay.io/lightspeed-core/lightspeed-stack:latest
+      name: quay.io/lightspeed-core/lightspeed-stack:0.4.1
