@@ -336,7 +336,7 @@ spec:
                 - name: RELATED_IMAGE_TACKLE_HUB
                   value: quay.io/konveyor/tackle2-hub:release-0.9
                 - name: RELATED_IMAGE_TACKLE_POSTGRES
-                  value: quay.io/sclorg/postgresql-15-c9s:latest
+                  value: quay.io/sclorg/postgresql-15-c9s:c9s
                 - name: RELATED_IMAGE_KEYCLOAK_SSO
                   value: quay.io/keycloak/keycloak:26.1
                 - name: RELATED_IMAGE_TACKLE_UI
@@ -538,7 +538,7 @@ spec:
     name: oauth-proxy
   - image: quay.io/konveyor/tackle2-hub:release-0.9
     name: tackle-hub
-  - image: quay.io/sclorg/postgresql-15-c9s:latest
+  - image: quay.io/sclorg/postgresql-15-c9s:c9s
     name: tackle-postgres
   - image: quay.io/keycloak/keycloak:26.1
     name: keycloak-sso
