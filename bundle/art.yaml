@@ -30,7 +30,7 @@ updates:
   - search: "name: konveyor-operator.v99.0.0"
     replace: "name: mta-operator.v8.1.1"
   - search: "value: 99.0.0"
-    replace: "value: 8.1.0"
+    replace: "value: 8.1.1"
   # IDK where else to fix olm.SkipRange?
   - search: ">=0.0.0 <99.0.0"
     replace: ">=8.0.0 <8.1.1"
