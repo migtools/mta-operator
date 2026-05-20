@@ -192,13 +192,21 @@ provider_c_sharp_image_fqin: "{{ lookup('env', 'RELATED_IMAGE_PROVIDER_C_SHARP')
 provider_c_sharp_name: "csharp"
 provider_c_sharp_service_name: "{{ app_name }}-{{ provider_c_sharp_name }}-{{ provider_c_sharp_component_name }}"
 
+provider_go_component_name: "extension"
+provider_go_container_limits_cpu: "1"
+provider_go_container_limits_memory: "1Gi"
+provider_go_container_requests_cpu: "1"
+provider_go_container_requests_memory: "1Gi"
+provider_go_image_fqin: "{{ lookup('env', 'RELATED_IMAGE_PROVIDER_GO') }}"
+provider_go_name: "go"
+provider_go_service_name: "{{ app_name }}-{{ provider_go_name }}-{{ provider_go_component_name }}"
 
 provider_python_component_name: "extension"
 provider_python_container_limits_cpu: "1"
 provider_python_container_limits_memory: "1Gi"
 provider_python_container_requests_cpu: "1"
 provider_python_container_requests_memory: "1Gi"
-provider_python_image_fqin: "{{ lookup('env', 'RELATED_IMAGE_PROVIDER_GENERIC') }}"
+provider_python_image_fqin: "{{ lookup('env', 'RELATED_IMAGE_PROVIDER_PYTHON') }}"
 provider_python_name: "python"
 provider_python_service_name: "{{ app_name }}-{{ provider_python_name }}-{{ provider_python_component_name }}"
 
@@ -207,7 +215,7 @@ provider_nodejs_container_limits_cpu: "1"
 provider_nodejs_container_limits_memory: "1Gi"
 provider_nodejs_container_requests_cpu: "1"
 provider_nodejs_container_requests_memory: "1Gi"
-provider_nodejs_image_fqin: "{{ lookup('env', 'RELATED_IMAGE_PROVIDER_GENERIC') }}"
+provider_nodejs_image_fqin: "{{ lookup('env', 'RELATED_IMAGE_PROVIDER_NODEJS') }}"
 provider_nodejs_name: "nodejs"
 provider_nodejs_service_name: "{{ app_name }}-{{ provider_nodejs_name }}-{{ provider_nodejs_component_name }}"
 
@@ -314,8 +322,14 @@ kai_llm_params:
 
 # LLM params when using the proxy - points to the local llm-proxy service
 kai_llm_proxy_provider_id: "{{ kai_llm_provider }}"
+# Some providers require a prefix on model IDs (e.g. Gemini uses 'models/')
+kai_llm_proxy_model_prefix_map:
+  google: "models/"
+  gemini: "models/"
+kai_llm_proxy_model_prefix: "{{ kai_llm_proxy_model_prefix_map[kai_llm_provider] | default('') }}"
+kai_llm_proxy_model_id: "{{ kai_llm_model if (not kai_llm_model) or kai_llm_model.startswith(kai_llm_proxy_model_prefix) else kai_llm_proxy_model_prefix + kai_llm_model }}"
 kai_llm_params_proxy:
-  model: "{{ kai_llm_proxy_provider_id }}/{{ kai_llm_model }}"
+  model: "{{ kai_llm_proxy_provider_id }}/{{ kai_llm_proxy_model_id }}"
   model_provider: "openai_api"
   configurable_fields:
     temperature: "{{ kai_llm_temperature }}"
@@ -347,8 +361,8 @@ kai_llm_proxy_provider_type_map:
   openai_api: "remote::openai"
   azure: "remote::azure-openai"
   azure_openai: "remote::azure-openai"
-  google: "remote::google"
-  gemini: "remote::google"
+  google: "remote::gemini"
+  gemini: "remote::gemini"
   bedrock: "remote::bedrock"
   anthropic: "remote::anthropic"
 
