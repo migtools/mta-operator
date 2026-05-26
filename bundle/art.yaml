@@ -26,14 +26,14 @@ updates:
     replace: "# value: quay.io/keycloak/keycloak:26.1 (unused downstream)"
   # Shouldn't these (versioning) be handled by bundle create job??
   - search: "version: 99.0.0"
-    replace: "version: 8.1.2"
+    replace: "version: 8.1.3"
   - search: "name: konveyor-operator.v99.0.0"
-    replace: "name: mta-operator.v8.1.2"
+    replace: "name: mta-operator.v8.1.3"
   - search: "value: 99.0.0"
-    replace: "value: 8.1.2"
+    replace: "value: 8.1.3"
   # IDK where else to fix olm.SkipRange?
   - search: ">=0.0.0 <99.0.0"
-    replace: ">=8.0.0 <8.1.2"
+    replace: ">=8.0.0 <8.1.3"
   - search: "features.operators.openshift.io/fips-compliant: \"false\""
     replace: "features.operators.openshift.io/fips-compliant: \"true\""
   - search: "support: https://github.com/konveyor/tackle2-operator/issues"
