@@ -27,14 +27,10 @@ spec:
     from:
       kind: DockerImage
       name: quay.io/konveyor/c-sharp-provider:latest
-  - name: mta-generic-external-provider-rhel9
+  - name: mta-go-external-provider-rhel9
     from:
       kind: DockerImage
-      name: quay.io/konveyor/generic-external-provider:latest
-  - name: mta-golang-dependency-provider-rhel9
-    from:
-      kind: DockerImage
-      name: quay.io/konveyor/golang-dependency-provider:latest
+      name: quay.io/konveyor/go-external-provider:latest
   - name: mta-hub-rhel9
     from:
       kind: DockerImage
@@ -47,10 +43,18 @@ spec:
     from:
       kind: DockerImage
       name: quay.io/konveyor/jdtls-server-base:latest
+  - name: mta-nodejs-external-provider-rhel9
+    from:
+      kind: DockerImage
+      name: quay.io/konveyor/nodejs-external-provider:latest
   - name: mta-platform-addon-rhel9
     from:
       kind: DockerImage
       name: quay.io/konveyor/tackle2-addon-platform:latest
+  - name: mta-python-external-provider-rhel9
+    from:
+      kind: DockerImage
+      name: quay.io/konveyor/python-external-provider:latest
   - name: mta-solution-server-rhel9
     from:
       kind: DockerImage

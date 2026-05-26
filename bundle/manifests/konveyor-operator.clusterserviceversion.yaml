@@ -50,7 +50,7 @@ metadata:
                   "value": "${seq:8000}"
                 }
               ],
-              "image": "quay.io/konveyor/generic-external-provider:latest",
+              "image": "quay.io/konveyor/go-external-provider:latest",
               "imagePullPolicy": "Always",
               "name": "myextension",
               "resources": {
