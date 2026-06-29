@@ -19,6 +19,11 @@ updates:
     replace: "mta-hub"
   - search: "name: kantra"
     replace: "name: mta-cli"
+  # Keycloak is deployed downstream using rhbk operator, this is requested via dependencies.yaml
+  - search: "- name: RELATED_IMAGE_KEYCLOAK_SSO"
+    replace: "# - name: RELATED_IMAGE_KEYCLOAK_SSO (unused downstream)"
+  - search: "value: quay.io/keycloak/keycloak:26.1"
+    replace: "# value: quay.io/keycloak/keycloak:26.1 (unused downstream)"
   # FIXME: We need a better way to handle these, these are MTA external dependencies that we do not build (external image refs)
   # Track external image reference work here: https://issues.redhat.com/browse/ART-14343
   - search: "quay.io/sclorg/postgresql-15-c9s:latest"
