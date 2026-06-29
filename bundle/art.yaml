@@ -19,7 +19,7 @@ updates:
     replace: "mta-hub"
   - search: "name: kantra"
     replace: "name: mta-cli"
-  # Keycloak is deployed downstream using rhbk operator, this is requested via dependencies.yaml
+  # The operator will no longer manage keycloak or rhsso/rhbk.
   - search: "- name: RELATED_IMAGE_KEYCLOAK_SSO"
     replace: "# - name: RELATED_IMAGE_KEYCLOAK_SSO (unused downstream)"
   - search: "value: quay.io/keycloak/keycloak:26.1"
