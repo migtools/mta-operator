@@ -85,4 +85,4 @@ external-images:
   replace: "registry.redhat.io/openshift4/ose-oauth-proxy:latest"
 - name: lightspeed-stack
   search: "quay.io/lightspeed-core/lightspeed-stack:0.4.1"
-  replace: "registry.redhat.io/lightspeed-core/lightspeed-stack-rhel9:latest"
+  replace: "registry.redhat.io/lightspeed-core/lightspeed-stack-rhel9:0.4.1"
