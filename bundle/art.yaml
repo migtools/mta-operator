@@ -34,14 +34,14 @@ updates:
     replace: "registry.redhat.io/lightspeed-core/lightspeed-stack-rhel9@sha256:1b662b49e4b0e6f7a1dca6643601f6f6f35706482049a3c37d025ec75d3a1dca"
   # Shouldn't these (versioning) be handled by bundle create job??
   - search: "version: 99.0.0"
-    replace: "version: 8.2.0"
+    replace: "version: 8.2.1"
   - search: "name: konveyor-operator.v99.0.0"
-    replace: "name: mta-operator.v8.2.0"
+    replace: "name: mta-operator.v8.2.1"
   - search: "value: 99.0.0"
-    replace: "value: 8.2.0"
+    replace: "value: 8.2.1"
   # IDK where else to fix olm.SkipRange?
   - search: ">=0.0.0 <99.0.0"
-    replace: ">=8.0.0 <8.2.0"
+    replace: ">=8.0.0 <8.2.1"
   - search: "features.operators.openshift.io/fips-compliant: \"false\""
     replace: "features.operators.openshift.io/fips-compliant: \"true\""
   - search: "support: https://github.com/konveyor/tackle2-operator/issues"
