@@ -1,4 +1,4 @@
-FROM registry.redhat.io/openshift4/ose-ansible-rhel9-operator:v4.17
+FROM registry.redhat.io/openshift4/ose-ansible-rhel9-operator:v4.20
 USER root
 COPY tools/upgrades/migrate-pathfinder-assessments.py /usr/local/bin/migrate-pathfinder-assessments.py
 COPY tools/upgrades/jwt.sh /usr/local/bin/jwt.sh
