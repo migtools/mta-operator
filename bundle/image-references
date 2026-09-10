@@ -67,3 +67,19 @@ spec:
     from:
       kind: DockerImage
       name: quay.io/konveyor/tackle2-ui:latest
+  - name: mta-agent-base-rhel9
+    from:
+      kind: DockerImage
+      name: quay.io/konveyor/agent-base:latest
+  - name: mta-agent-skills-rhel9
+    from:
+      kind: DockerImage
+      name: quay.io/konveyor/skills:latest
+  - name: mta-agent-java-rhel9
+    from:
+      kind: DockerImage
+      name: quay.io/konveyor/agent-java:latest
+  - name: mta-agentic-controller-rhel9
+    from:
+      kind: DockerImage
+      name: quay.io/konveyor/agentic-controller:latest
