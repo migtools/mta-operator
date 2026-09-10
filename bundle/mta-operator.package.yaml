@@ -1,6 +1,6 @@
 ---
 packageName: mta-operator
 channels:
-- name: stable-v8.2
-  currentCSV: mta-operator.v8.2.0
-defaultChannel: stable-v8.2
+- name: stable-v8.3
+  currentCSV: mta-operator.v8.3.0
+defaultChannel: stable-v8.3

@@ -557,14 +557,15 @@ spec:
                   value: quay.io/konveyor/agentic-controller:latest
                 - name: RELATED_IMAGE_AGENT_BASE
                   value: quay.io/konveyor/agent-base:latest
-                - name: RELATED_IMAGE_AGENT_GO
-                  value: quay.io/konveyor/agent-go:latest
+                # For MTA 8.3.0 we are only shipping agent-java
+                # - name: RELATED_IMAGE_AGENT_GO
+                #   value: quay.io/konveyor/agent-go:latest
                 - name: RELATED_IMAGE_AGENT_JAVA
                   value: quay.io/konveyor/agent-java:latest
-                - name: RELATED_IMAGE_AGENT_CSHARP
-                  value: quay.io/konveyor/agent-csharp:latest
-                - name: RELATED_IMAGE_AGENT_NODEJS
-                  value: quay.io/konveyor/agent-nodejs:latest
+                # - name: RELATED_IMAGE_AGENT_CSHARP
+                #   value: quay.io/konveyor/agent-csharp:latest
+                # - name: RELATED_IMAGE_AGENT_NODEJS
+                #   value: quay.io/konveyor/agent-nodejs:latest
                 - name: RELATED_IMAGE_AGENT_SKILLS
                   value: quay.io/konveyor/skills:latest
                 image: quay.io/konveyor/tackle2-operator:latest
