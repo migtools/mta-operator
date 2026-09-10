@@ -111,4 +111,22 @@ rules:
   - patch
   - update
   - watch
+# The operator applies and prunes curated agentic defaults, including cleanup
+# when agentic is disabled. The agentic-controller's RBAC does not cover these
+# requests because they run as the tackle-operator service account.
+- apiGroups:
+  - konveyor.io
+  resources:
+  - agents
+  - agentworkflows
+  - skillcards
+  - skillcollections
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
 #+kubebuilder:scaffold:rules

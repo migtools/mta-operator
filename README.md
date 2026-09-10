@@ -98,6 +98,33 @@ You can access the Konveyor UI in your browser through the `$(minikube ip)` IP.
 
 If you're looking to install Konveyor operator on macOS, follow the guide [here](docs/installation-macos.md).
 
+### Enabling the agentic controller (alpha)
+
+The agentic controller is an opt-in, alpha operand. Turn it on by setting
+`agentic_enabled: true` in the Tackle CR spec:
+
+```
+spec:
+  agentic_enabled: true
+```
+
+The agentic controller requires [Agent Sandbox](https://github.com/kubernetes-sigs/agent-sandbox)
+to be installed in the cluster first: it watches and owns `Sandbox`
+(`sandboxes.agents.x-k8s.io`) objects, so the operator only deploys it once that
+CRD is present. Until then the operator posts an `AgenticControllerReady`
+condition with reason `AgentSandboxMissing` and does not deploy the controller.
+Agent Sandbox is a separate project, not an operator-managed operand; install it
+either by applying an upstream [release manifest](https://github.com/kubernetes-sigs/agent-sandbox/releases)
+or from its operator (available on [OperatorHub](https://operatorhub.io/) and in
+the OpenShift catalog).
+
+For local development, `hack/install-konveyor.sh` can install the Agent Sandbox
+prerequisite and enable the controller in one step:
+
+```
+INSTALL_AGENT_SANDBOX=true AGENTIC_ENABLED=true ./hack/install-konveyor.sh
+```
+
 ## Konveyor Operator Installation on OKD/OpenShift
 
 ### Installing _released versions_

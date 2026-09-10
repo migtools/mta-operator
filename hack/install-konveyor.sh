@@ -26,6 +26,11 @@ AGENT_SANDBOX_VERSION="${AGENT_SANDBOX_VERSION:-v1.0.0}"
 # sandbox-with-extensions.yaml (core + extensions). Core is enough for the
 # agentic controller.
 AGENT_SANDBOX_MANIFEST="${AGENT_SANDBOX_MANIFEST:-sandbox.yaml}"
+# Turn on the agentic controller in the generated Tackle CR. Pair with
+# INSTALL_AGENT_SANDBOX=true so the Sandbox CRD is present, or the controller
+# is gated off with an AgentSandboxMissing condition. Unset leaves the operator
+# default (false). Ignored when TACKLE_CR is supplied.
+AGENTIC_ENABLED="${AGENTIC_ENABLED:-}"
 
 # Global timeout configuration - entire script must complete within this time
 GLOBAL_TIMEOUT_SECONDS="${GLOBAL_TIMEOUT_SECONDS:-600}"  # 10 minutes default
@@ -296,6 +301,7 @@ metadata:
 spec:
   disable_maven_search: ${DISABLE_MAVEN_SEARCH}
   feature_auth_required: ${FEATURE_AUTH_REQUIRED}
+${AGENTIC_ENABLED:+  agentic_enabled: ${AGENTIC_ENABLED}}
 ${KAI_SOLUTION_SERVER_ENABLED:+  kai_solution_server_enabled: ${KAI_SOLUTION_SERVER_ENABLED}}
 ${KAI_LLM_MODEL:+  kai_llm_model: ${KAI_LLM_MODEL}}
 ${KAI_LLM_PROVIDER:+  kai_llm_provider: ${KAI_LLM_PROVIDER}}
