@@ -12,6 +12,22 @@ rules:
   - '*'
   verbs:
   - '*'
+# The agentic CRDs are served under the bare konveyor.io group rather than
+# tackle.konveyor.io, so the wildcard above does not cover them. Name each
+# resource explicitly (rather than wildcarding the whole konveyor.io group) so
+# the hub is only granted the agentic CRs it manages.
+- apiGroups:
+  - konveyor.io
+  resources:
+  - agents
+  - agentruns
+  - agentworkflows
+  - agentworkflowruns
+  - gateways
+  - skillcards
+  - skillcollections
+  verbs:
+  - '*'
 - apiGroups:
   - security.openshift.io
   resourceNames:
