@@ -83,4 +83,4 @@ updates:
   - search: konveyor-operator
     replace: mta-operator
   - search: development
-    replace: stable-v8.1
+    replace: stable-v8.2
