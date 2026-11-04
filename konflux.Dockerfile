@@ -1,4 +1,4 @@
-FROM registry.redhat.io/openshift4/ose-ansible-rhel9-operator:v4.17
+FROM registry.redhat.io/openshift4/ose-ansible-rhel9-operator:v4.22
 USER root
 COPY tools/upgrades/migrate-pathfinder-assessments.py /usr/local/bin/migrate-pathfinder-assessments.py
 COPY tools/upgrades/jwt.sh /usr/local/bin/jwt.sh
@@ -6,13 +6,19 @@ COPY tools/upgrades/jwt.sh /usr/local/bin/jwt.sh
 ARG COMMUNITY_GENERAL="community-general-4.8.11.tar.gz"
 ARG COMMUNITY_POSTGRESQL="community-postgresql-3.10.2.tar.gz"
 ARG JMESPATH_WHL="jmespath-1.1.0-py3-none-any.whl"
+# Upgrade base-image python deps flagged for CVEs that no ose-ansible base ships yet:
+# urllib3 2.8.0 (CVE-2026-97689, CVE-2026-97687), pyasn1 0.6.5 (CVE-2026-119194/5/6/7).
+ARG URLLIB3_WHL="urllib3-2.8.0-py3-none-any.whl"
+ARG PYASN1_WHL="pyasn1-0.6.5-py3-none-any.whl"
 COPY hack/build/${COMMUNITY_GENERAL} ${HOME}/${COMMUNITY_GENERAL}
 COPY hack/build/${COMMUNITY_POSTGRESQL} ${HOME}/${COMMUNITY_POSTGRESQL}
 COPY hack/build/${JMESPATH_WHL} ${HOME}/${JMESPATH_WHL}
+COPY hack/build/${URLLIB3_WHL} ${HOME}/${URLLIB3_WHL}
+COPY hack/build/${PYASN1_WHL} ${HOME}/${PYASN1_WHL}
 RUN ansible-galaxy collection install ${HOME}/${COMMUNITY_GENERAL} ${HOME}/${COMMUNITY_POSTGRESQL} && rm ${HOME}/${COMMUNITY_GENERAL} ${HOME}/${COMMUNITY_POSTGRESQL}
 RUN dnf module enable -y postgresql:15
 RUN dnf install -y postgresql python3-psycopg2 && dnf clean all
-RUN python3.12 -m pip install --no-index --no-deps ${HOME}/${JMESPATH_WHL} && rm ${HOME}/${JMESPATH_WHL}
+RUN python3.12 -m pip install --no-index --no-deps ${HOME}/${JMESPATH_WHL} ${HOME}/${URLLIB3_WHL} ${HOME}/${PYASN1_WHL} && rm ${HOME}/${JMESPATH_WHL} ${HOME}/${URLLIB3_WHL} ${HOME}/${PYASN1_WHL}
 USER 1001
 COPY --chown=1001:0 watches.yaml ${HOME}/watches.yaml
 COPY --chown=1001:0 roles ${HOME}/roles

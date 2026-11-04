@@ -11,7 +11,7 @@ RUN echo -e "[almalinux9-appstream]" \
  "\nenabled = 1" \
  "\ngpgcheck = 0" > /etc/yum.repos.d/almalinux.repo
 RUN microdnf -y module enable postgresql:15 && microdnf -y install postgresql python3.12-psycopg2 && microdnf clean all
-RUN python3 -m ensurepip && pip3 install --no-cache-dir jmespath && pip3 install --no-cache-dir --upgrade pyasn1>=0.6.4
+RUN python3 -m ensurepip && pip3 install --no-cache-dir jmespath && pip3 install --no-cache-dir --upgrade 'pyasn1>=0.6.5' 'urllib3>=2.8.0'
 USER 1001
 
 COPY requirements.yml ${HOME}/requirements.yml
