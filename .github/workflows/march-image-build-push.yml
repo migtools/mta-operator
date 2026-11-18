@@ -40,6 +40,7 @@ jobs:
         containerfile: "./Dockerfile"
         image_name: "tackle2-operator"
         image_namespace: "konveyor"
+        publish: 'false'
         image_registry: "quay.io"
         quay_publish_robot: ${{ secrets.QUAY_PUBLISH_ROBOT }}
         quay_publish_token: ${{ secrets.QUAY_PUBLISH_TOKEN }}
@@ -52,6 +53,7 @@ jobs:
         containerfile: "./bundle.Dockerfile"
         image_name: "tackle2-operator-bundle"
         image_namespace: "konveyor"
+        publish: 'false'
         image_registry: "quay.io"
         pre_build_cmd: |
           # Repin konveyor image references in the bundle CSV from :latest to the
@@ -79,6 +81,7 @@ jobs:
         containerfile: "./index.Dockerfile"
         image_name: "tackle2-operator-index"
         image_namespace: "konveyor"
+        publish: 'false'
         image_registry: "quay.io"
         quay_publish_robot: ${{ secrets.QUAY_PUBLISH_ROBOT }}
         quay_publish_token: ${{ secrets.QUAY_PUBLISH_TOKEN }}
